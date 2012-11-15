@@ -1,4 +1,15 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%table
+  %tbody
+    %tr
+      %td{"class" => "welcome"} Welcome to the Health Map
+    %tr
+      %td &nbsp;
+    %tr
+      %td &nbsp; 
+    - @states_json           
+    %tr
+      %td Our registered users are listed below:      
+    - @users.each do |user|
+      %tr
+        %td
+          User: #{link_to user.name, user}
