@@ -1,6 +1,13 @@
 class HomeController < ApplicationController
   def index
-    @states_json = Rails.root.join("lib/data/us-states.json").read
+#    @states_json = Rails.root.join("lib/data/us-states.json").read
+  
+    @h = LazyHighCharts::HighChart.new('graph') do |f|
+      f.options[:chart][:defaultSeriesType] = "area"
+      f.series(:name=>'John', :data=>[3, 20, 3, 5, 4, 10, 12 ,3, 5,6,7,7,80,9,9])
+      f.series(:name=>'Jane', :data=> [1, 3, 4, 3, 3, 5, 4,-46,7,8,8,9,9,0,0,9] )
+    end
+
     @users = User.all
   end
 end

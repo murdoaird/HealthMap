@@ -6,7 +6,11 @@
       %td &nbsp;
     %tr
       %td &nbsp; 
-    - @states_json           
+    = high_chart("my_id", @h)
+    #chart
+      %button.btn{:onclick => "hello()"}
+        Update
+      %p
     %tr
       %td Our registered users are listed below:      
     - @users.each do |user|
